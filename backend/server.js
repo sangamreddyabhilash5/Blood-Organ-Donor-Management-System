@@ -62,13 +62,19 @@ app.use(
     cors({
 
         origin: function(origin, callback) {
+            // Allow requests with no origin (mobile apps, curl, etc.)
+            if (!origin) return callback(null, true);
+
             const allowedOrigins = [
                 "http://localhost:5173",
                 "http://localhost:3000",
                 (process.env.FRONTEND_URL || "").trim()
             ].filter(Boolean);
 
-            if (!origin || allowedOrigins.includes(origin)) {
+            // Allow all vercel.app subdomains
+            const isVercel = /\.vercel\.app$/.test(origin);
+
+            if (allowedOrigins.includes(origin) || isVercel) {
                 callback(null, true);
             } else {
                 callback(new Error("Not allowed by CORS"));
