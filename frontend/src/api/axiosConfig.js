@@ -16,7 +16,7 @@ const BASE_URL =
 
 const API = axios.create({
     baseURL: BASE_URL,
-    timeout: 15000,
+    timeout: 60000, // 60s — handles Render free tier cold start
 });
 
 // ======================================================
