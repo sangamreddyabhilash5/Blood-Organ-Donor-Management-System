@@ -1,8 +1,7 @@
 import { useEffect, useState, useMemo, useCallback } from "react";
-import axios from "axios";
+import API from "../api/axiosConfig";
 import "./SearchNearby.css";
 
-const API_URL = "http://localhost:5000/api/donors/nearby";
 
 function SearchNearby() {
   const [donors, setDonors] = useState([]);
@@ -23,7 +22,7 @@ function SearchNearby() {
     navigator.geolocation.getCurrentPosition(
       async ({ coords }) => {
         try {
-          const response = await axios.get(API_URL, {
+          const response = await API.get("/donors/nearby", {
             params: {
               lat: coords.latitude,
               lng: coords.longitude,

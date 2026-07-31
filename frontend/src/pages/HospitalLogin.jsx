@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import API from "../api/axiosConfig";
 import "./Login.css";
 
 
@@ -78,9 +78,9 @@ function HospitalLogin() {
 
 
 
-            const response = await axios.post(
+            const response = await API.post(
 
-                "http://localhost:5000/api/hospitals/login",
+                "/hospitals/login",
 
                 {
                     email,

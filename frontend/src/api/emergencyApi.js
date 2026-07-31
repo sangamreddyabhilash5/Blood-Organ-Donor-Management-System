@@ -1,27 +1,14 @@
-import axios from "axios";
+import API from "./axiosConfig";
 
 // ======================================================
 // Emergency API
 // Blood & Organ Donor Management System
 // ======================================================
-
-const API = axios.create({
-  baseURL: "http://localhost:5000/api/emergency",
-});
-
-// ======================================================
-// Add JWT Token Automatically
+// Uses shared Axios instance — base URL comes from
+// VITE_API_URL environment variable.
+// Calls are prefixed with /emergency below.
 // ======================================================
 
-API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-
-  return config;
-});
 
 // ======================================================
 // Get All Emergency Requests
@@ -29,7 +16,7 @@ API.interceptors.request.use((config) => {
 
 export const getEmergencyRequests = async () => {
   try {
-    const response = await API.get("/");
+    const response = await API.get("/emergency");
     return response.data;
   } catch (error) {
     console.error("Get Emergency Requests Error:", error);
@@ -43,7 +30,7 @@ export const getEmergencyRequests = async () => {
 
 export const createEmergencyRequest = async (data) => {
   try {
-    const response = await API.post("/", data);
+    const response = await API.post("/emergency", data);
     return response.data;
   } catch (error) {
     console.error("Create Emergency Request Error:", error);
@@ -57,7 +44,7 @@ export const createEmergencyRequest = async (data) => {
 
 export const getEmergencyRequestById = async (id) => {
   try {
-    const response = await API.get(`/${id}`);
+    const response = await API.get(`/emergency/${id}`);
     return response.data;
   } catch (error) {
     console.error("Get Emergency Request Error:", error);
@@ -71,7 +58,7 @@ export const getEmergencyRequestById = async (id) => {
 
 export const updateEmergencyRequest = async (id, data) => {
   try {
-    const response = await API.put(`/${id}`, data);
+    const response = await API.put(`/emergency/${id}`, data);
     return response.data;
   } catch (error) {
     console.error("Update Emergency Request Error:", error);
@@ -85,7 +72,7 @@ export const updateEmergencyRequest = async (id, data) => {
 
 export const deleteEmergencyRequest = async (id) => {
   try {
-    const response = await API.delete(`/${id}`);
+    const response = await API.delete(`/emergency/${id}`);
     return response.data;
   } catch (error) {
     console.error("Delete Emergency Request Error:", error);

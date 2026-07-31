@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../api/axiosConfig";
 import "./Login.css";
 
 function Register() {
@@ -86,8 +86,8 @@ function Register() {
         try {
             setLoading(true);
 
-            const response = await axios.post(
-                "http://localhost:5000/api/donors/register",
+            const response = await API.post(
+                "/donors/register",
                 {
                     fullName: formData.fullName.trim(),
                     email: formData.email.trim().toLowerCase(),
@@ -126,8 +126,8 @@ function Register() {
     const verifyOTP = async () => {
         try {
 
-            const res = await axios.post(
-                "http://localhost:5000/api/donors/verify-otp",
+            const res = await API.post(
+                "/donors/verify-otp",
                 {
                     email: formData.email,
                     otp

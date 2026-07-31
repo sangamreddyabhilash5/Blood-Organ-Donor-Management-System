@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../api/axiosConfig";
 import "./SearchDonors.css";
 
 
@@ -27,8 +27,8 @@ function SearchDonors() {
       setLoading(true);
 
 
-      const res = await axios.get(
-        "http://localhost:5000/api/donors"
+      const res = await API.get(
+        "/donors"
       );
 
 

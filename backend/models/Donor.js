@@ -425,9 +425,7 @@ donorSchema.index({
 });
 
 
-donorSchema.index({
-    location:"2dsphere"
-});
+
 
 
 

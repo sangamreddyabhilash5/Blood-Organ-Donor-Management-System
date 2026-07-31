@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "./AdminDashboard.css";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 
 function AdminDashboard() {
 
@@ -16,7 +18,7 @@ function AdminDashboard() {
   const downloadDonorReport = () => {
 
     window.open(
-      "http://localhost:5000/api/reports/donors",
+      `${API_BASE}/reports/donors`,
       "_blank"
     );
 

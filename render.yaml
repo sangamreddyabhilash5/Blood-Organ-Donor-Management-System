@@ -1,0 +1,30 @@
+services:
+  # ======================================================
+  # Backend — Node.js / Express API
+  # Deploy to: https://render.com
+  # ======================================================
+  - type: web
+    name: blood-organ-donor-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      # Set these in the Render dashboard — DO NOT put real values here
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: FRONTEND_URL
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false

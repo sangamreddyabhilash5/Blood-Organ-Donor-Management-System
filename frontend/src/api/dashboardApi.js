@@ -1,41 +1,19 @@
-import axios from "axios";
+import API from "./axiosConfig";
 
 
 // ======================================================
 // Donor API Configuration
 // Blood & Organ Donor Management System
 // ======================================================
-
-
-const API = axios.create({
-
-    baseURL: "http://localhost:5000/api",
-
-});
-
-
-
-// ======================================================
-// Add JWT Token Automatically
+// Uses shared Axios instance — base URL comes from
+// VITE_API_URL environment variable.
 // ======================================================
 
-API.interceptors.request.use((config) => {
 
 
-    const token = localStorage.getItem("token");
 
 
-    if (token) {
 
-        config.headers.Authorization =
-            `Bearer ${token}`;
-
-    }
-
-
-    return config;
-
-});
 
 
 

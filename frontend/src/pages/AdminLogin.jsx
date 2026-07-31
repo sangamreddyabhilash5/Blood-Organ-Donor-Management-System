@@ -52,11 +52,13 @@ function AdminLogin() {
 
 
 
-        // Demo Admin Authentication
+        // Admin credentials from environment variables
+        const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || "admin@bloodsystem.com";
+        const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || "Admin@2024!";
 
         if(
-            email === "admin@gmail.com" &&
-            password === "admin123"
+            email === ADMIN_EMAIL &&
+            password === ADMIN_PASSWORD
         ){
 
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../api/axiosConfig";
 import "./Login.css";
 
 
@@ -153,9 +153,9 @@ function HospitalRegister() {
 
 
 
-            const response = await axios.post(
+            const response = await API.post(
 
-                "http://localhost:5000/api/hospitals/register",
+                "/hospitals/register",
 
                 {
 
@@ -262,9 +262,9 @@ function HospitalRegister() {
 
 
 
-            const response = await axios.post(
+            const response = await API.post(
 
-                "http://localhost:5000/api/hospitals/verify-otp",
+                "/hospitals/verify-otp",
 
                 {
 

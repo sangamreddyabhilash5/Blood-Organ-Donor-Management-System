@@ -39,6 +39,7 @@ const updateProfile = async (req, res) => {
 
     // Only allow these fields to be updated
     const allowedUpdates = [
+      "fullName",
       "name",
       "email",
       "phone",
@@ -47,16 +48,21 @@ const updateProfile = async (req, res) => {
       "bloodGroup",
       "city",
       "state",
-      "address",
+      "donorType",
+      "organs",
       "availability",
-      "organDonor",
+      "profileImage",
     ];
 
     const updateData = {};
 
     allowedUpdates.forEach((field) => {
       if (req.body[field] !== undefined) {
-        updateData[field] = req.body[field];
+        if (field === "name") {
+          updateData["fullName"] = req.body["name"];
+        } else {
+          updateData[field] = req.body[field];
+        }
       }
     });
 

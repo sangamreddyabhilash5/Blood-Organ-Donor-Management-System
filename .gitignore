@@ -10,8 +10,17 @@ dist-ssr/
 
 # Environment variables (never commit secrets)
 .env
+.env.local
+.env.production
+.env.production.local
+.env.development.local
+.env.test.local
 backend/.env
+backend/.env.local
 frontend/.env
+frontend/.env.local
+frontend/.env.production
+frontend/.env.production.local
 *.local
 
 # Logs

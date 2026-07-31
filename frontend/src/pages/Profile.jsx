@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../api/axiosConfig";
 import "./Profile.css";
 
 function Profile() {
@@ -46,13 +46,8 @@ function Profile() {
 
     try {
 
-      const res = await axios.get(
-        `http://localhost:5000/api/donors/${donorId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+      const res = await API.get(
+        `/donors/${donorId}`
       );
 
 
@@ -111,17 +106,11 @@ function Profile() {
     try {
 
 
-      const res = await axios.put(
+      const res = await API.put(
 
-        `http://localhost:5000/api/donors/${donorId}`,
+        `/donors/${donorId}`,
 
-        formData,
-
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        formData
 
       );
 
