@@ -1,0 +1,220 @@
+/* ==========================
+   Global Reset
+========================== */
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+
+
+/* ==========================
+   Root Setup
+========================== */
+
+html,
+body,
+#root {
+
+  width: 100%;
+
+  min-height: 100%;
+
+}
+
+
+
+/* ==========================
+   CSS Variables
+========================== */
+
+:root {
+
+  --primary-color: #d32f2f;
+
+  --secondary-color: #1565c0;
+
+  --success-color: #2e7d32;
+
+  --danger-color: #b71c1c;
+
+  --text-color: #333;
+
+  --light-bg: #f8f9fa;
+
+  --white: #ffffff;
+
+  --border-radius: 12px;
+
+}
+
+
+
+/* ==========================
+   Body Styling
+========================== */
+
+body {
+
+  font-family:
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+
+  background: var(--light-bg);
+
+
+  color: var(--text-color);
+
+
+  line-height: 1.6;
+
+
+  -webkit-font-smoothing: antialiased;
+
+}
+
+
+
+/* ==========================
+   Links
+========================== */
+
+a {
+
+  text-decoration: none;
+
+  color: inherit;
+
+}
+
+
+
+/* ==========================
+   Buttons
+========================== */
+
+button {
+
+  font-family: inherit;
+
+  cursor:pointer;
+
+  border:none;
+
+}
+
+
+
+/* ==========================
+   Inputs & Forms
+========================== */
+
+input,
+select,
+textarea {
+
+  font-family: inherit;
+
+  outline:none;
+
+}
+
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+  border-color: var(--primary-color);
+
+}
+
+
+
+/* ==========================
+   Smooth Scroll
+========================== */
+
+html {
+
+  scroll-behavior:smooth;
+
+}
+
+
+
+/* ==========================
+   Images
+========================== */
+
+img {
+
+  max-width:100%;
+
+  display:block;
+
+}
+
+
+
+/* ==========================
+   Lists
+========================== */
+
+ul,
+ol {
+
+  list-style:none;
+
+}
+
+
+
+/* ==========================
+   Text Selection
+========================== */
+
+::selection {
+
+  background: var(--primary-color);
+
+  color:white;
+
+}
+
+
+
+/* ==========================
+   Scrollbar
+========================== */
+
+::-webkit-scrollbar {
+
+  width:8px;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+  background:var(--primary-color);
+
+  border-radius:10px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+  background:#eee;
+
+}

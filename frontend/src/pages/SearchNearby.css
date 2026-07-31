@@ -1,0 +1,218 @@
+/* ==========================================
+   Nearby Donors
+   Blood & Organ Donor Management System
+========================================== */
+
+.nearby-page{
+    min-height:100vh;
+    padding:40px;
+    background:#f5f7fb;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.nearby-page h1{
+    text-align:center;
+    color:#d32f2f;
+    font-size:36px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    font-size:17px;
+    margin-bottom:30px;
+}
+
+/* ===========================
+   Search Box
+=========================== */
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    margin-bottom:35px;
+}
+
+.search-box input{
+    width:100%;
+    max-width:500px;
+    padding:14px 18px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+    transition:.3s;
+}
+
+.search-box input:focus{
+    border-color:#1565c0;
+    box-shadow:0 0 8px rgba(21,101,192,.25);
+}
+
+/* ===========================
+   Loading / Error
+=========================== */
+
+.loading,
+.no-donor{
+    text-align:center;
+    margin-top:80px;
+    font-size:22px;
+    color:#555;
+}
+
+/* ===========================
+   Grid
+=========================== */
+
+.donor-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.donor-card{
+    background:#fff;
+    border-radius:18px;
+    padding:28px;
+    border-top:5px solid #d32f2f;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+    text-align:center;
+}
+
+.donor-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+
+.donor-card h2{
+    color:#1565c0;
+    font-size:24px;
+    margin-bottom:18px;
+    word-break:break-word;
+}
+
+.donor-card p{
+    margin:10px 0;
+    font-size:16px;
+    color:#444;
+    line-height:1.6;
+}
+
+.donor-card strong{
+    color:#222;
+}
+
+/* ===========================
+   Blood Badge
+=========================== */
+
+.blood-badge{
+    display:inline-block;
+    background:#d32f2f;
+    color:#fff;
+    padding:7px 18px;
+    border-radius:30px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+/* ===========================
+   Distance
+=========================== */
+
+.distance{
+    color:#2e7d32;
+    font-weight:bold;
+    margin-top:15px;
+    font-size:17px;
+}
+
+/* ===========================
+   Contact Buttons
+=========================== */
+
+.contact-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:22px;
+}
+
+.contact-buttons button{
+    flex:1;
+    border:none;
+    border-radius:10px;
+    padding:13px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    color:#fff;
+}
+
+/* Call */
+
+.call-btn{
+    background:#1565c0;
+}
+
+.call-btn:hover{
+    background:#0d47a1;
+    transform:scale(1.03);
+}
+
+/* WhatsApp */
+
+.whatsapp-btn{
+    background:#25D366;
+}
+
+.whatsapp-btn:hover{
+    background:#128C7E;
+    transform:scale(1.03);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .nearby-page{
+        padding:20px;
+    }
+
+    .nearby-page h1{
+        font-size:28px;
+    }
+
+    .subtitle{
+        font-size:15px;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+
+    .donor-grid{
+        grid-template-columns:1fr;
+    }
+
+    .donor-card{
+        padding:22px;
+    }
+
+    .contact-buttons{
+        flex-direction:column;
+    }
+}

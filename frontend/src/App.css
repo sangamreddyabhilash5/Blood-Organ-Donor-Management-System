@@ -1,0 +1,190 @@
+/* ==============================
+   Common Container
+============================== */
+
+.container {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 40px;
+
+  background: linear-gradient(
+    135deg,
+    #4facfe,
+    #00c6ff
+  );
+
+}
+
+
+/* ==============================
+   Card Design
+============================== */
+
+.card {
+
+  width: 500px;
+
+  background: #ffffff;
+
+  padding: 40px;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.2);
+
+  transition: 0.3s;
+
+}
+
+
+.card:hover {
+
+  transform: translateY(-5px);
+
+}
+
+
+
+/* ==============================
+   Heading
+============================== */
+
+.card h1 {
+
+  font-size: 32px;
+
+  color: #b71c1c;
+
+  margin-bottom: 20px;
+
+}
+
+
+.card h2 {
+
+  color: #1565c0;
+
+  margin-bottom: 15px;
+
+}
+
+
+
+/* ==============================
+   Paragraph
+============================== */
+
+.card p {
+
+  color: #555;
+
+  line-height: 1.6;
+
+  margin-bottom: 25px;
+
+}
+
+
+
+/* ==============================
+   Buttons
+============================== */
+
+.card button {
+
+  width:100%;
+
+  padding:14px;
+
+  margin:10px 0;
+
+  font-size:18px;
+
+  border:none;
+
+  border-radius:8px;
+
+  background:#1565c0;
+
+  color:white;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+
+.card button:hover {
+
+  background:#0d47a1;
+
+}
+
+
+
+/* ==============================
+   Secondary Button
+============================== */
+
+.card .secondary-btn {
+
+  background:#d32f2f;
+
+}
+
+
+.card .secondary-btn:hover {
+
+  background:#b71c1c;
+
+}
+
+
+
+/* ==============================
+   Responsive
+============================== */
+
+@media(max-width:600px){
+
+  .container{
+
+    padding:20px;
+
+  }
+
+
+  .card{
+
+    width:100%;
+
+    padding:25px;
+
+  }
+
+
+  .card h1{
+
+    font-size:26px;
+
+  }
+
+
+  .card button{
+
+    font-size:16px;
+
+  }
+
+}

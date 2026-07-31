@@ -1,0 +1,177 @@
+.availability-container {
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fb;
+}
+
+
+/* Main Card */
+
+.availability-card {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.availability-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* Heading */
+
+.availability-card h1 {
+  text-align: center;
+  color: #d32f2f;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+
+/* Description */
+
+.availability-card > p {
+  text-align: center;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+
+/* Status Box */
+
+.status-box {
+  background: #fafafa;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 25px;
+  border-left: 5px solid #d32f2f;
+}
+
+
+.status-box h2 {
+  font-size: 20px;
+  color: #333;
+}
+
+
+/* Available */
+
+.available {
+  color: #2e7d32;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+
+/* Unavailable */
+
+.unavailable {
+  color: #d32f2f;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+
+/* Buttons */
+
+.availability-card button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+
+/* Unavailable Button */
+
+.btn-unavailable {
+  background: #d32f2f;
+}
+
+.btn-unavailable:hover {
+  background: #b71c1c;
+  transform: scale(1.02);
+}
+
+
+/* Available Button */
+
+.btn-available {
+  background: #28a745;
+}
+
+.btn-available:hover {
+  background: #218838;
+  transform: scale(1.02);
+}
+
+
+/* Information Box */
+
+.info-box {
+  margin-top: 30px;
+  background: #fff5f5;
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 5px solid #d32f2f;
+}
+
+
+.info-box h3 {
+  color: #d32f2f;
+  margin-bottom: 15px;
+}
+
+
+/* List */
+
+.info-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+.info-box li {
+  margin: 12px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+/* Mobile Responsive */
+
+@media(max-width:600px){
+
+  .availability-container {
+    padding: 20px;
+  }
+
+
+  .availability-card {
+    padding: 25px;
+  }
+
+
+  .availability-card h1 {
+    font-size: 26px;
+  }
+
+
+  .status-box h2 {
+    font-size: 18px;
+  }
+
+}

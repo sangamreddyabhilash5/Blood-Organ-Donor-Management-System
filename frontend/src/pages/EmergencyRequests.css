@@ -1,0 +1,135 @@
+.request-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: #f5f7fb;
+}
+
+.request-box {
+    width: 100%;
+    max-width: 520px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    transition: all .3s ease;
+}
+
+.request-box:hover {
+    transform: translateY(-5px);
+}
+
+.request-box h1 {
+    text-align: center;
+    color: #d32f2f;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.request-box p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.request-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.request-box input,
+.request-box select,
+.request-box textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: all .3s ease;
+    background: #fff;
+}
+
+.request-box input::placeholder,
+.request-box textarea::placeholder {
+    color: #888;
+}
+
+.request-box input:focus,
+.request-box select:focus,
+.request-box textarea:focus {
+    border-color: #d32f2f;
+    box-shadow: 0 0 8px rgba(211,47,47,.25);
+}
+
+.request-box textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.request-box button {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.request-box button:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+}
+
+.request-box button:active {
+    transform: scale(.98);
+}
+
+.success-message {
+    margin-top: 18px;
+    padding: 12px;
+    background: #d4edda;
+    color: #155724;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.error-message {
+    margin-top: 18px;
+    padding: 12px;
+    background: #f8d7da;
+    color: #721c24;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+@media (max-width:600px){
+
+    .request-page{
+        padding:20px;
+    }
+
+    .request-box{
+        padding:25px;
+    }
+
+    .request-box h1{
+        font-size:24px;
+    }
+
+    .request-box input,
+    .request-box select,
+    .request-box textarea,
+    .request-box button{
+        font-size:15px;
+    }
+}

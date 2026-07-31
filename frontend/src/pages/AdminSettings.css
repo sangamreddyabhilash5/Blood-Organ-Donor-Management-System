@@ -1,0 +1,175 @@
+.settings-container{
+    min-height:100vh;
+    background:#f5f7fb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+
+.settings-card{
+
+    width:700px;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+}
+
+
+
+.settings-card h1{
+
+    text-align:center;
+    color:#d32f2f;
+    margin-bottom:10px;
+
+}
+
+
+
+.settings-card p{
+
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+
+}
+
+
+
+.section{
+
+    margin-bottom:30px;
+    padding:20px;
+    background:#fafafa;
+    border-radius:12px;
+    border-left:5px solid #d32f2f;
+
+}
+
+
+
+.section h2{
+
+    color:#1976d2;
+    margin-bottom:15px;
+    border-bottom:2px solid #eee;
+    padding-bottom:8px;
+
+}
+
+
+
+.section label{
+
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+    color:#444;
+
+}
+
+
+
+.section input,
+.section select{
+
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+
+}
+
+
+
+.section input:focus,
+.section select:focus{
+
+    border-color:#1976d2;
+
+}
+
+
+
+.toggle{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    padding:15px;
+    border-radius:8px;
+
+}
+
+
+
+.toggle span{
+
+    font-weight:bold;
+    color:#444;
+
+}
+
+
+
+.toggle input{
+
+    width:20px;
+    height:20px;
+    cursor:pointer;
+
+}
+
+
+
+.save-btn{
+
+    width:100%;
+    padding:15px;
+    background:#d32f2f;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+
+
+.save-btn:hover{
+
+    background:#b71c1c;
+    transform:scale(1.02);
+
+}
+
+
+
+@media(max-width:768px){
+
+.settings-container{
+
+    padding:20px;
+
+}
+
+
+.settings-card{
+
+    width:100%;
+    padding:25px;
+
+}
+
+
+}

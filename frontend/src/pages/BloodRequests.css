@@ -1,0 +1,175 @@
+.blood-request-container {
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fb;
+}
+
+
+/* Main Card */
+
+.blood-request-card {
+  width: 100%;
+  max-width: 650px;
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.blood-request-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* Heading */
+
+.blood-request-card h1 {
+  text-align: center;
+  color: #d32f2f;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.blood-request-card > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+
+/* Request List */
+
+.request-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+/* Individual Request Card */
+
+.request-box {
+  background: #fafafa;
+  padding: 22px;
+  border-radius: 12px;
+  border-left: 5px solid #d32f2f;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.request-box:hover {
+  background: #fff5f5;
+  transform: translateX(5px);
+}
+
+
+.request-box h3 {
+  color: #d32f2f;
+  margin-bottom: 12px;
+}
+
+
+.request-box p {
+  text-align: left;
+  color: #444;
+  margin: 8px 0;
+}
+
+
+/* Status Badge */
+
+.status {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+/* Emergency */
+
+.emergency {
+  background: #ffd6d6;
+  color: #b71c1c;
+}
+
+
+/* Urgent */
+
+.urgent {
+  background: #fff3cd;
+  color: #856404;
+}
+
+
+/* Pending */
+
+.pending {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+
+/* Donate Button */
+
+.donate-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 11px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.donate-btn:hover {
+  background: #218838;
+}
+
+
+/* Back Button */
+
+.request-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.request-btn:hover {
+  background: #b71c1c;
+}
+
+
+/* Mobile Responsive */
+
+@media(max-width:600px){
+
+  .blood-request-container {
+    padding: 20px;
+  }
+
+  .blood-request-card {
+    padding: 25px;
+  }
+
+  .blood-request-card h1 {
+    font-size: 26px;
+  }
+
+}

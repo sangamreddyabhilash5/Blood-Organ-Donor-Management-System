@@ -1,0 +1,560 @@
+/* ======================================================
+   Admin Dashboard
+   Blood & Organ Donor Management System
+====================================================== */
+
+
+/* ==========================
+   Main Container
+========================== */
+
+.admin-container{
+
+    min-height:100vh;
+
+    background:#f5f7fb;
+
+    padding:40px;
+
+    font-family:
+    Arial, Helvetica, sans-serif;
+
+}
+
+
+
+
+
+
+/* ==========================
+   Header
+========================== */
+
+
+.admin-header{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+
+
+.admin-header h1{
+
+    color:#c62828;
+
+    font-size:38px;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+}
+
+
+
+.admin-header p{
+
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.6;
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   Statistics Section
+========================== */
+
+
+.stats-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+
+
+    gap:25px;
+
+
+    margin-bottom:50px;
+
+
+}
+
+
+
+
+
+.stat-card{
+
+
+    background:white;
+
+
+    padding:30px;
+
+
+    border-radius:18px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+    0 6px 20px rgba(0,0,0,0.08);
+
+
+    transition:0.3s;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+.stat-card:hover{
+
+
+    transform:translateY(-8px);
+
+
+}
+
+
+
+
+
+.stat-icon{
+
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+.stat-card h2{
+
+
+    font-size:35px;
+
+    margin:10px 0;
+
+
+    color:#333;
+
+
+}
+
+
+
+
+.stat-card p{
+
+
+    color:#666;
+
+    font-size:17px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   Statistics Colors
+========================== */
+
+
+.red{
+
+    border-top:6px solid #d32f2f;
+
+}
+
+
+.blue{
+
+    border-top:6px solid #1976d2;
+
+}
+
+
+.orange{
+
+    border-top:6px solid #fb8c00;
+
+}
+
+
+.green{
+
+    border-top:6px solid #2e7d32;
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+   Quick Actions Title
+========================== */
+
+
+.section-title{
+
+
+    color:#c62828;
+
+
+    font-size:28px;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+   Menu Grid
+========================== */
+
+
+.menu-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+   Menu Cards
+========================== */
+
+
+.menu-card{
+
+
+    background:white;
+
+
+    border-radius:18px;
+
+
+    padding:35px 25px;
+
+
+    min-height:170px;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+    0 6px 20px rgba(0,0,0,0.08);
+
+
+
+    transition:0.3s;
+
+
+}
+
+
+
+
+
+
+.menu-card:hover{
+
+
+    background:#d32f2f;
+
+
+    transform:
+
+    translateY(-8px);
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+.menu-icon{
+
+
+    font-size:50px;
+
+
+    margin-bottom:18px;
+
+
+}
+
+
+
+
+
+
+
+.menu-card h3{
+
+
+    font-size:20px;
+
+
+    color:#333;
+
+
+    margin:0;
+
+
+}
+
+
+
+.menu-card:hover h3{
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+   Reports Highlight
+========================== */
+
+
+.menu-card:nth-child(5){
+
+
+    border-top:
+
+    5px solid #1976d2;
+
+
+}
+
+
+
+.menu-card:nth-child(5):hover{
+
+
+    background:#1976d2;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+   PDF Button (Optional)
+========================== */
+
+
+.report-btn{
+
+
+    margin-top:25px;
+
+
+    padding:14px 30px;
+
+
+    background:#d32f2f;
+
+
+    color:white;
+
+
+    border:none;
+
+
+    border-radius:10px;
+
+
+    font-size:16px;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+    transition:0.3s;
+
+
+}
+
+
+
+.report-btn:hover{
+
+
+    background:#b71c1c;
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   Mobile Responsive
+========================== */
+
+
+@media(max-width:768px){
+
+
+
+    .admin-container{
+
+
+        padding:20px;
+
+
+    }
+
+
+
+    .admin-header h1{
+
+
+        font-size:30px;
+
+
+    }
+
+
+
+    .section-title{
+
+
+        font-size:24px;
+
+
+    }
+
+
+
+    .menu-card{
+
+
+        min-height:150px;
+
+
+    }
+
+
+
+    .report-btn{
+
+
+        width:100%;
+
+
+    }
+
+
+}
