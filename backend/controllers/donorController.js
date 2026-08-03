@@ -94,6 +94,7 @@ function calculateDistance(
 
 const registerDonor = async(req,res)=>{
 
+    console.log(`[Register] Request received for: ${req.body.email}`);
 
     try{
 
