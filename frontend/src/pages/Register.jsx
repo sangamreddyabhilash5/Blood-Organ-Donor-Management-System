@@ -111,9 +111,11 @@ function Register() {
         } catch (error) {
 
             console.log("Register Error:", error);
+            console.log("Backend message:", error.response?.data);
 
             setError(
                 error.response?.data?.message ||
+                error.message ||
                 "Registration failed"
             );
 
