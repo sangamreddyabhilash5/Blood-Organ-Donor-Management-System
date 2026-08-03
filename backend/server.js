@@ -58,31 +58,53 @@ const app = express();
 // ======================================================
 
 
+// ======================================================
+// CORS — must come before ALL routes
+// ======================================================
+
+const allowedOrigins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    (process.env.FRONTEND_URL || "").trim()
+].filter(Boolean);
+
+// Handle OPTIONS preflight for every route
+app.options("*", (req, res) => {
+    const origin = req.headers.origin;
+    const isVercel = origin && /\.vercel\.app$/.test(origin);
+    const isAllowed = origin && (allowedOrigins.includes(origin) || isVercel);
+
+    res.setHeader("Access-Control-Allow-Origin", isAllowed ? origin : allowedOrigins[0] || "*");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
+    res.setHeader("Access-Control-Allow-Headers", "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization");
+    res.status(200).end();
+});
+
+app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    const isVercel = origin && /\.vercel\.app$/.test(origin);
+    const isAllowed = !origin || allowedOrigins.includes(origin) || isVercel;
+
+    if (isAllowed && origin) {
+        res.setHeader("Access-Control-Allow-Origin", origin);
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+    }
+    next();
+});
+
 app.use(
     cors({
-
         origin: function(origin, callback) {
-            // Allow requests with no origin (mobile apps, curl, etc.)
             if (!origin) return callback(null, true);
-
-            const allowedOrigins = [
-                "http://localhost:5173",
-                "http://localhost:3000",
-                (process.env.FRONTEND_URL || "").trim()
-            ].filter(Boolean);
-
-            // Allow all vercel.app subdomains
             const isVercel = /\.vercel\.app$/.test(origin);
-
             if (allowedOrigins.includes(origin) || isVercel) {
                 callback(null, true);
             } else {
                 callback(new Error("Not allowed by CORS"));
             }
         },
-
         credentials: true
-
     })
 );
 
