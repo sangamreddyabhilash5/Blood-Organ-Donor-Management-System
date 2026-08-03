@@ -69,16 +69,19 @@ const allowedOrigins = [
 ].filter(Boolean);
 
 // Handle OPTIONS preflight for every route
-app.options("*", (req, res) => {
-    const origin = req.headers.origin;
-    const isVercel = origin && /\.vercel\.app$/.test(origin);
-    const isAllowed = origin && (allowedOrigins.includes(origin) || isVercel);
+app.use((req, res, next) => {
+    if (req.method === "OPTIONS") {
+        const origin = req.headers.origin;
+        const isVercel = origin && /\.vercel\.app$/.test(origin);
+        const isAllowed = origin && (allowedOrigins.includes(origin) || isVercel);
 
-    res.setHeader("Access-Control-Allow-Origin", isAllowed ? origin : allowedOrigins[0] || "*");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
-    res.setHeader("Access-Control-Allow-Headers", "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization");
-    res.status(200).end();
+        res.setHeader("Access-Control-Allow-Origin", isAllowed ? origin : allowedOrigins[0] || "*");
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+        res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
+        res.setHeader("Access-Control-Allow-Headers", "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization");
+        return res.status(200).end();
+    }
+    next();
 });
 
 app.use((req, res, next) => {
