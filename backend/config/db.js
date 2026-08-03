@@ -91,8 +91,13 @@ const connectDB = async () => {
 
 
 
-        process.exit(1);
-
+        // In Serverless environments, we don't want to kill the entire process
+        // because it causes a 500 FUNCTION_INVOCATION_FAILED without clear logs.
+        if (process.env.VERCEL) {
+            throw error;
+        } else {
+            process.exit(1);
+        }
 
     }
 
