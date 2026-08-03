@@ -424,13 +424,20 @@ const registerDonor = async(req,res)=>{
 
 
 
-        await sendOTP(
-
-            email,
-
-            otp
-
-        );
+        console.log(`[Register] Attempting to send OTP to ${email}`);
+        try {
+            await sendOTP(
+                email,
+                otp
+            );
+            console.log(`[Register] OTP successfully sent to ${email}`);
+        } catch (emailError) {
+            console.error(`[Register] Failed to send OTP email:`, emailError);
+            return res.status(500).json({
+                success: false,
+                message: "Failed to send OTP email. Check backend email configuration."
+            });
+        }
 
 
 
