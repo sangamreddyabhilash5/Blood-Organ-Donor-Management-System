@@ -106,6 +106,10 @@ function Register() {
             alert(response.data.message);
 
             // ✅ SHOW OTP INPUT
+            // For testing since emails are blocked on Render free tier
+            if (response.data.otp) {
+                console.log("=== OTP FOR TESTING ===", response.data.otp);
+            }
             setOtpSent(true);
 
         } catch (error) {
