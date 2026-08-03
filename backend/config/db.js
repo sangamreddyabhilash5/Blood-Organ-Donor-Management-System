@@ -13,95 +13,41 @@ const mongoose = require("mongoose");
 // ======================================================
 
 
+let cachedPromise = null;
+
 const connectDB = async () => {
+    if (mongoose.connection.readyState === 1) {
+        return mongoose.connection;
+    }
 
+    if (cachedPromise) {
+        return cachedPromise;
+    }
 
-    try {
+    if (!process.env.MONGO_URI) {
+        throw new Error("MONGO_URI environment variable is missing");
+    }
 
-
-        const conn = await mongoose.connect(
-
-            process.env.MONGO_URI,
-
-            {
-
-                serverSelectionTimeoutMS:5000,
-
-                socketTimeoutMS:45000,
-
-            }
-
-        );
-
-
-
-        console.log(
-            "===================================="
-        );
-
-
-        console.log(
-            "✅ MongoDB Connected Successfully"
-        );
-
-
-        console.log(
-            `📦 Database : ${conn.connection.name}`
-        );
-
-
-        console.log(
-            `🖥️ Host     : ${conn.connection.host}`
-        );
-
-
-        console.log(
-            "===================================="
-        );
-
-
-
+    cachedPromise = mongoose.connect(process.env.MONGO_URI, {
+        serverSelectionTimeoutMS: 10000,
+        socketTimeoutMS: 45000,
+    }).then((conn) => {
+        console.log("====================================");
+        console.log("✅ MongoDB Connected Successfully");
+        console.log(`📦 Database : ${conn.connection.name}`);
+        console.log(`🖥️ Host     : ${conn.connection.host}`);
+        console.log("====================================");
         return conn;
+    }).catch((error) => {
+        cachedPromise = null;
+        console.log("====================================");
+        console.log("❌ MongoDB Connection Failed");
+        console.log(`Error : ${error.message}`);
+        console.log("====================================");
+        throw error;
+    });
 
-
-
-    }
-
-    catch(error){
-
-
-        console.log(
-            "===================================="
-        );
-
-
-        console.log(
-            "❌ MongoDB Connection Failed"
-        );
-
-
-        console.log(
-            `Error : ${error.message}`
-        );
-
-
-        console.log(
-            "===================================="
-        );
-
-
-
-        // In Serverless environments, we don't want to kill the entire process
-        // because it causes a 500 FUNCTION_INVOCATION_FAILED without clear logs.
-        if (process.env.VERCEL) {
-            throw error;
-        } else {
-            process.exit(1);
-        }
-
-    }
-
-
+    return cachedPromise;
 };
 
 

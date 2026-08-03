@@ -91,6 +91,27 @@ try {
     app.use(express.urlencoded({ extended:true }));
 
     // ======================================================
+    // Database Connection Middleware for Serverless
+    // ======================================================
+    app.use(async (req, res, next) => {
+        // Skip DB connection check for preflight requests or simple health check
+        if (req.method === "OPTIONS" || req.path === "/health") {
+            return next();
+        }
+
+        try {
+            await connectDB();
+            next();
+        } catch (err) {
+            console.error("Database connection middleware error:", err.message);
+            return res.status(500).json({
+                success: false,
+                message: `Database connection failed: ${err.message}. Please verify MONGO_URI in environment variables and ensure MongoDB Atlas Network Access allows 0.0.0.0/0.`
+            });
+        }
+    });
+
+    // ======================================================
     // Basic Routes
     // ======================================================
     app.get("/",(req,res)=>{
