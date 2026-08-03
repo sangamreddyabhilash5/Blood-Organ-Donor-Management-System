@@ -111,71 +111,28 @@ try {
     });
 
     // ======================================================
-    // API Routes
+    // API Routes (Mounted with /api and without /api)
     // ======================================================
     app.use("/api/donors", donorRoutes);
+    app.use("/donors", donorRoutes);
+
     app.use("/api/profile", profileRoutes);
-    console.log("✅ Profile Routes Loaded");
+    app.use("/profile", profileRoutes);
 
+    app.use("/api/hospital", hospitalRoutes);
+    app.use("/api/hospitals", hospitalRoutes);
+    app.use("/hospital", hospitalRoutes);
+    app.use("/hospitals", hospitalRoutes);
 
+    app.use("/api/emergency", emergencyRoutes);
+    app.use("/emergency", emergencyRoutes);
 
+    app.use("/api/notifications", notificationRoutes);
+    app.use("/notifications", notificationRoutes);
 
-app.use(
-
-    "/api/hospitals",
-
-    hospitalRoutes
-
-);
-
-console.log(
-    "✅ Hospital Routes Loaded"
-);
-
-
-
-
-app.use(
-
-    "/api/emergency",
-
-    emergencyRoutes
-
-);
-
-console.log(
-    "✅ Emergency Routes Loaded"
-);
-
-
-
-
-app.use(
-
-    "/api/notifications",
-
-    notificationRoutes
-
-);
-
-console.log(
-    "✅ Notification Routes Loaded"
-);
-
-
-
-
-app.use(
-
-    "/api/reports",
-
-    reportRoutes
-
-);
-
-console.log(
-    "✅ Report Routes Loaded"
-);
+    app.use("/api/reports", reportRoutes);
+    app.use("/reports", reportRoutes);
+    console.log("✅ All API Routes Loaded Successfully");
 
 
 

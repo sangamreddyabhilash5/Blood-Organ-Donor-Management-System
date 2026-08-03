@@ -1,6 +1,22 @@
 {
   "rewrites": [
     {
+      "source": "/api/:path*",
+      "destination": "https://blood-organ-donor-management-system-seven.vercel.app/api/:path*"
+    },
+    {
+      "source": "/donors/:path*",
+      "destination": "https://blood-organ-donor-management-system-seven.vercel.app/api/donors/:path*"
+    },
+    {
+      "source": "/hospitals/:path*",
+      "destination": "https://blood-organ-donor-management-system-seven.vercel.app/api/hospital/:path*"
+    },
+    {
+      "source": "/hospital/:path*",
+      "destination": "https://blood-organ-donor-management-system-seven.vercel.app/api/hospital/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
