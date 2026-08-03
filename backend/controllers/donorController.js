@@ -425,14 +425,8 @@ const registerDonor = async(req,res)=>{
 
 
 
-        console.log(`[Register] Generated OTP for ${email}: ${otp}`);
+        console.log(`[Register] Attempting to send OTP to ${email}`);
         
-        // --- RENDER FREE TIER FIX ---
-        // Render blocks outgoing SMTP ports (465, 587) on free plans to prevent spam.
-        // Calling sendOTP will hang forever and cause a 60000ms timeout!
-        // For testing, we will bypass the email send and just return success.
-        
-        /*
         try {
             await sendOTP(email, otp);
             console.log(`[Register] OTP successfully sent to ${email}`);
@@ -443,18 +437,10 @@ const registerDonor = async(req,res)=>{
                 message: "Failed to send OTP email. Check backend email configuration."
             });
         }
-        */
-
-
-
-
-
-
 
         return res.status(200).json({
             success:true,
-            message: "OTP generated successfully! Check console for OTP.",
-            otp: otp // Added for testing because SMTP is blocked
+            message: "OTP sent to email. Please verify to complete registration"
         });
 
 

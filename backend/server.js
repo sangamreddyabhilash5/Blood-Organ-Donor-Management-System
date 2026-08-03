@@ -365,115 +365,35 @@ app.use(
 // ======================================================
 
 
-const PORT =
-process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
+// Connect to DB immediately for Serverless environments
+connectDB().then(() => {
+    console.log("📦 Database connection initialized");
+}).catch(err => {
+    console.error("❌ Database connection failed:", err.message);
+});
 
-
-async function startServer(){
-
-
-    try{
-
-
-        await connectDB();
-
-
-
-        app.listen(PORT,()=>{
-
-
-            console.log(
-                "================================="
-            );
-
-
-            console.log(
-                "🩸 Blood & Organ Donor System"
-            );
-
-
-            console.log(
-                "================================="
-            );
-
-
-            console.log(
-
-                `🚀 Server Running : http://localhost:${PORT}`
-
-            );
-
-
-            console.log(
-
-                `🔔 Notifications : http://localhost:${PORT}/api/notifications`
-
-            );
-
-
-            console.log(
-
-                `🌍 Environment : ${
-                    process.env.NODE_ENV || "development"
-                }`
-
-            );
-
-
-            console.log(
-                "================================="
-            );
-
-
-        });
-
-
-
-    }
-
-    catch(error){
-
-
-        console.error(
-
-            "❌ Server Startup Failed:",
-
-            error.message
-
-        );
-
-
-        process.exit(1);
-
-
-    }
-
-
+// Only start the server locally if not in Vercel
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log("=================================");
+        console.log("🩸 Blood & Organ Donor System");
+        console.log("=================================");
+        console.log(`🚀 Server Running : http://localhost:${PORT}`);
+        console.log(`🔔 Notifications : http://localhost:${PORT}/api/notifications`);
+        console.log(`🌍 Environment : ${process.env.NODE_ENV || "development"}`);
+        console.log("=================================");
+    });
 }
 
-
-
-startServer();
-
-
-
-
+// Export the Express API for Vercel
+module.exports = app;
 
 // ======================================================
 // Graceful Shutdown
 // ======================================================
-
-
-process.on(
-    "SIGINT",
-    ()=>{
-
-        console.log(
-            "🛑 Server Closed"
-        );
-
-        process.exit(0);
-
-    }
-);
+process.on("SIGINT", () => {
+    console.log("🛑 Server Closed");
+    process.exit(0);
+});
